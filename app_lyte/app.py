@@ -9,12 +9,12 @@ def about():
 
     st.divider()
     st.markdown("""<p style='text-align: left; color: black; font-size: 20px;'>Natural gas and coal accounted for roughly 58% of the United States electricity generation in 2022, releasing approximately 1,508 million metric tons of Carbon Dioxide (CO<sub>2</sub>) <sup>1</sup>. As atmospheric CO<sub>2</sub> levels
-                increase, it is likely that temperatures will continue to rise due to the atmospheric greenhouse effect <sup>2</sup>. There is a need to reduce our CO<sub>2</sub> emissions accross the globe. 
+                increase, it is likely that temperatures will continue to rise due to the atmospheric greenhouse effect <sup>2</sup>. There is a need to reduce our CO<sub>2</sub> emissions across the globe. 
                 In the United States, identifying CO<sub>2</sub> sources and sinks and potential driving factors is integral to tackling the problem. Specifically, can we group US counties based on socioeconomic factors and atmospheric CO<sub>2</sub> levels?
                 If successful, this data can be utilized to better drive policy creation for specific geographic regions thereby mitigating CO<sub>2</sub> emissions.</p>""",
                 unsafe_allow_html=True)
 
-    st.markdown("<h2 style='text-align: center; color: grey;'>Atmospheric Carbon Dioxide Levels Contiue to Rise in The United States</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: grey;'>Atmospheric Carbon Dioxide Levels Continue to Rise in The United States</h2>", unsafe_allow_html=True)
     htmlFile1 = open("app_lyte/images/co2_vs_time.html",
                      'r', encoding='utf-8')
     fig1 = htmlFile1.read()
@@ -23,15 +23,15 @@ def about():
     st.markdown(
         " ### Atmospheric Carbon Dioxide Data - Collected by Orbiting Satellites Using Advanced Remote Sensing Techniques")
     st.markdown("""<p style='text-align: left; color: black; font-size: 20px;'> Atmospheric CO<sub>2</sub> data was obtained from NASA's Orbiting Carbon Observatory-2 (OCO-2) and Japan's Aerospace Exploration Agency's Greenhouse Gases Orbiting Satellite (GOSAT). Merging these datasets and using further geostatistical techniques,
-                researchers Sheng et al. produced a more complete CO<sub>2</sub> emissions dataset. The open source dataset was utilized for this project <sup>3</sup> ; it contains 357153 unique data points, each detailing 
+                researchers Sheng et al. produced a more complete CO<sub>2</sub> concentration dataset. The open source dataset was utilized for this project <sup>3</sup> ; it contains 357153 unique data points, each detailing 
                 a column averaged CO<sub>2</sub> reading, the date of the reading, and the 
                 geospatial coordinates. This data underwent further cleaning, filtering, and grouping.</p>""",
                 unsafe_allow_html=True)
 
     st.markdown(
-        " ### Socioeconomic Data - Collected from the United States Census and the Centers of Disease Control")
+        " ### Socioeconomic Data - Collected from the United States Census and the Centers for Disease Control")
     st.markdown("""<p style='text-align: left; color: black; font-size: 20px;'> The United States Census collects data pertaining to socioeconomic factors. The Centers for Disease Control calculate and publish a Social Vulnerability Index (SVI) every two years in tabular format with numerous geographic
-                identifiers <sup>4</sup>. SVI meaures social conditions of a community and its vulnerability to human suffering and financial loss in the event of a disastor. Some of the measurements that were aggregated include: persons below 150% poverty, persons unemployed, 
+                identifiers <sup>4</sup>. SVI measures social conditions of a community and its vulnerability to human suffering and financial loss in the event of a disaster. Some of the measurements that were aggregated include: persons below 150% poverty, persons unemployed, 
                 aged 65 & older, civilians with a disability, etc. This data set contains 82269 unique data points with 109 fields. This data underwent further merging, cleaning, filtering, and grouping.</p>""",
                 unsafe_allow_html=True)
     st.divider()
@@ -57,7 +57,7 @@ def about():
             with left:
                 option = st.selectbox(
                     'Select an Indicator',
-                    ('Overall Vulnerability', 'Socioeconoimc Status', 'Household Characteristics', 'Racial & Ethnic Minority Status', 'Housing Type & Transportation'))
+                    ('Overall Vulnerability', 'Socioeconomic Status', 'Household Characteristics', 'Racial & Ethnic Minority Status', 'Housing Type & Transportation'))
 
             if option == 'Overall Vulnerability':
                 st.markdown("<h3 style='text-align: left; color: black;'>Overall Summary Ranking by County</h3>",
@@ -67,7 +67,7 @@ def about():
                 fig3 = htmlFile3.read()
                 st.components.v1.html(fig3, height=600)
 
-            elif option == 'Socioeconoimc Status':
+            elif option == 'Socioeconomic Status':
                 st.markdown("<h3 style='text-align: left; color: black;'>Socioeconomic Status by County</h3>",
                             unsafe_allow_html=True)
                 htmlFile3 = open("app_lyte/images/soc_econ_status.html",
@@ -106,10 +106,10 @@ def about():
 
     st.markdown("<h2 style='text-align: center; color: grey;'>Clustering Analysis</h2>",
                 unsafe_allow_html=True)
-    st.markdown("""<p style='text-align: left; color: black; font-size: 20px;'>The aim of clustering analysis is to identify groups of similar objects, where clustered objects are more like one another than those in seperate clusters <sup>5</sup>. 
-                Multiple clustering approaches were tested and performance was compared using silhouette scores and the Davies-Bouldin index. The best performing approach was K-means clustering with a silhoutte score
-                and Davies-Bouldin index of 0.355 and 1.258, respectively. Based on these results, the clusters are not well-seperated since the sihouette scores are low while the Davies-Bouldin index is high. However, this clustering did lead to
-                some interesting results with clusters appearing to seperate relatively well geographically. Cluster characteristics and grouping can be explored in the below interactive radar chart and map.
+    st.markdown("""<p style='text-align: left; color: black; font-size: 20px;'>The aim of clustering analysis is to identify groups of similar objects, where clustered objects are more like one another than those in separate clusters <sup>5</sup>. 
+                Multiple clustering approaches were tested and performance was compared using silhouette scores and the Davies-Bouldin index. The best performing approach was K-means clustering with a silhouette score
+                and Davies-Bouldin index of 0.355 and 1.258, respectively. Based on these results, the clusters are not well-separated since the silhouette scores are low while the Davies-Bouldin index is high. However, this clustering did lead to
+                some interesting results with clusters appearing to separate relatively well geographically. Cluster characteristics and grouping can be explored in the below interactive radar chart and map.
                 This relationship is worth further exploring with cluster analysis using other data sources and computational techniques. 
                 </p>""",
                 unsafe_allow_html=True)
